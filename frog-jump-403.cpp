@@ -16,8 +16,9 @@ public:
             int target = stones[i];
             for (int j = i - 1; j >= 0; j--) {
                 int previous = stones[j];
+                int distance = target - previous;
+                if (distance > 2*previous + 1) break;
                 if (cross[j]) {
-                    int distance = target - previous;
                     if (jumps[j].find(distance) != jumps[j].end()) {
                         cross[i] = true;
                         jumps[i].insert(distance - 1);
